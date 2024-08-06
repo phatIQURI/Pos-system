@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: product
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    # networks:
+    #   - prisma-network
+
+  # nest-app:
+  #   build: .
+  #   depends_on:
+  #     - db
+  #   ports:
+  #     - '3000:3000'
+  #   networks:
+  #     - prisma-network
+
+volumes:
+  db-data:
+
+# networks:
+#   prisma-network:
+#     driver: bridge
