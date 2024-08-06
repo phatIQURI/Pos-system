@@ -7,7 +7,7 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
-import { Product } from './model/product.model';
+import { Product } from '../../model/product.model';
 import { ProductService } from './product.service';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreateProductDto } from './Dto/create-product.dto';
