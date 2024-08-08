@@ -65,7 +65,7 @@ export class UserService {
     return this.prisma.user.delete({ where: { id: id } });
   }
 
-  async findUserByUsername(username: string): Promise<User> {
+  async findUserByUsername(username: string): Promise<User | null> {
     return this.prisma.user.findUnique({
       where: { username },
     });
