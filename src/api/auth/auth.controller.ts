@@ -27,6 +27,15 @@ export class AuthController {
     return this.authService.logIn(loginUserDto);
   }
 
+  @Public()
+  @HttpCode(HttpStatus.OK)
+  @Post('refresh')
+  async refresh(@Request() req) {
+    const authHeader = req.headers.authorization;
+    const token = authHeader.replace('Bearer ', '');
+    return this.authService.refresh(token);
+  }
+
   @UseGuards(AuthGuard)
   @Get('profile')
   getProfile(@Request() req) {
