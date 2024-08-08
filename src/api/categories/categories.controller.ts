@@ -8,11 +8,17 @@ import {
   Put,
 } from '@nestjs/common';
 import { CategoriesService } from './categories.service';
-import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import {
+  ApiBearerAuth,
+  ApiOperation,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 import { CreateCategoryDto } from './Dto/create-categories.dto';
 import { Category } from '@prisma/client';
 import { UpdateCategoriesDto } from './Dto/update-categories.dto';
 
+@ApiBearerAuth()
 @Controller('categories')
 @ApiTags('Categories')
 export class CategoriesController {

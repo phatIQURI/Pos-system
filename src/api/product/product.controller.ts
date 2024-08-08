@@ -9,10 +9,16 @@ import {
 } from '@nestjs/common';
 import { Product } from '../../model/product.model';
 import { ProductService } from './product.service';
-import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import {
+  ApiBearerAuth,
+  ApiOperation,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 import { CreateProductDto } from './Dto/create-product.dto';
 import { UpdateProductDto } from './Dto/update-product.dto';
 
+@ApiBearerAuth()
 @Controller('product')
 @ApiTags('Product')
 export class ProductController {

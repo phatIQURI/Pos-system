@@ -10,9 +10,15 @@ import {
 import { UserService } from './user.service';
 import { CreateUserDto } from './Dto/create-user.dto';
 import { User } from '@prisma/client';
-import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import {
+  ApiBearerAuth,
+  ApiOperation,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 import { UpdateUserDto } from './Dto/update-user.dto';
 
+@ApiBearerAuth()
 @Controller('user')
 @ApiTags('User')
 export class UserController {
